@@ -10,13 +10,26 @@ const libraryContainer = document.querySelector('.libraryContainer')
 let myLibrary = [
     
      {
-        Title: 'Harry Potter & the Wizard of OZ!',
+        title: 'Harry Potter & the Wizard of OZ!',
         author: 'Me!',
         pages: 2,
         read: true,
+    },
+
+    {
+        title: 'James & The Giant Peach',
+        author: 'JK Rowling',
+        pages: 5356,
+        read: false,
     }, 
 
-    'hello','gooodbye','my name is harry']
+    {
+        title: 'Vikings',
+        author: 'Colin Firth',
+        pages: 45,
+        read: true,
+    }, 
+]
 
 function bookConstructor(title,author,pages,read) {
     this.title = title
@@ -54,23 +67,26 @@ display in library
 for (i=0; i < myLibrary.length; i++) {
     let libraryBook = document.createElement('div');
     libraryBook.classList.add(`libraryBook${i}`);
-    //libraryBook.innerHTML = myLibrary[i];
     libraryContainer.appendChild(libraryBook);
 
     let bookTitle = document.createElement('div');
     bookTitle.classList.add('title');
     libraryBook.appendChild(bookTitle);
+    bookTitle.innerHTML = `Title: ${myLibrary[i].title}`
 
     let bookAuthor = document.createElement('div');
     bookAuthor.classList.add('author');
     libraryBook.appendChild(bookAuthor);
+    bookAuthor.innerHTML = `Author: ${myLibrary[i].author}`
 
     let bookPages = document.createElement('div');
     bookPages.classList.add('pages');
     libraryBook.appendChild(bookPages);
+    bookPages.innerHTML = `No. of Pages: ${myLibrary[i].pages}`
 
     let bookRead = document.createElement('div');
     bookRead.classList.add('read');
     libraryBook.appendChild(bookRead);
+    bookRead.innerHTML = `Read?: ${myLibrary[i].read}`
     
 };
