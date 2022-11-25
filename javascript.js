@@ -92,12 +92,17 @@ submitButton.addEventListener('click', (e) => {
     newBook = new bookConstructor(newTitle,newAuthor,newPages,newRead);
     addToLibrary(newBook);
 
-    //Clears all temporary variables
+    //Clears all temporary variables & form inputs
     newTitle = '';
     newAuthor = '';
     newPages = '';
     newRead = '';
     newBook = '';
+
+    titleInput.value = '';
+    authorInput.value = '';
+    pagesInput.value = '';
+    readInput.value = '';
 
     libraryDivUpdate();
 })
