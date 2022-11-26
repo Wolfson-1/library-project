@@ -4,6 +4,7 @@ body {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
+    background-color: grey;
 
 }
 
@@ -12,6 +13,11 @@ body {
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .addBookContainer {
@@ -20,7 +26,15 @@ body {
     grid-row-start: 2;
     grid-row-end: 3;
 
-    padding: 30px;
+    background-color: darkgray;
+    height: 95%;
+    width: 85%;
+    margin-left: 4%;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .libraryContainer {
@@ -34,7 +48,45 @@ body {
     flex-wrap: wrap;
     justify-content: left;
     
-    gap:20px;
-    padding:50px;
+    height: 100%;
+    width: 100%;
     overflow-y: scroll;
+}
+
+.libraryContainer>div {
+    border:solid 1px;
+    height: 230px;
+    width:230px;
+    margin: 1.5%;
+    flex: 0 0 250px;
+    border-radius: 15px;
+    background-color: rgb(49, 116, 209);
+}
+
+.libraryContainer>div>div {
+    padding-left:20px;
+    padding-right: 2px;
+    padding-top:10px;
+    font-size: large;
+}
+
+.addBookForm {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    padding-top: 20%;
+}
+
+.addBookForm>form>div {
+    margin-bottom: 30px;
+    flex:1;
+    display: flex;
+}
+
+.addBookForm>form>div>lable {
+    margin-right: 5px;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    flex: 1;
 }
