@@ -12,6 +12,7 @@ let newAuthor = '';
 let newPages = '';
 let newRead = '';
 let newBook = '';
+let currentReadInput = '';
 
 //for remove from Array
 let thisButton = '';
@@ -173,11 +174,15 @@ submitButton.addEventListener('click', (e) => {
     newTitle = titleInput.value;
     newAuthor = authorInput.value;
     newPages = pagesInput.value;
-    if (readInput.value == 'true') {
-            newRead = 'Unread';
+    currentReadInput = readInput.checked
+
+    if (currentReadInput == true) {
+            newRead = 'Read';
     } else {
-        newRead= 'Read';
+        newRead = 'Unread';
     };
+
+    console.log(newRead);
 
     //adds temporary variables to newBook & pushes to myLibrary array
     newBook = new bookConstructor(newTitle,newAuthor,newPages,newRead);
