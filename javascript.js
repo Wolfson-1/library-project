@@ -13,6 +13,16 @@ let newPages = '';
 let newRead = '';
 let newBook = '';
 
+//for remove from Array
+let thisButton = '';
+let thisTitle = '';
+let selector = '';
+let toBeDeleted = '';
+let endNo = '';
+let endNoDoubleDig = '';
+let thisTitle2 = '';
+let toDelete = '';
+
 //------------------------------------------
 
 /*Take inputs from user*/
@@ -54,7 +64,7 @@ function bookConstructor(title,author,pages,read) {
 function libraryDivUpdate() { {
 
         let libraryBook = document.createElement('div');
-        libraryBook.classList.add(`libraryBook${myLibrary.length - 1}`);
+        libraryBook.classList.add(`libraryBook${myLibrary.length}`);
         libraryContainer.appendChild(libraryBook);
 
         let bookTitle = document.createElement('div');
@@ -76,17 +86,65 @@ function libraryDivUpdate() { {
         bookRead.classList.add('read');
         libraryBook.appendChild(bookRead);
         bookRead.innerHTML = `Read?: ${myLibrary[myLibrary.length - 1].read}`
+
+        let buttons = document.createElement('div');
+        buttons.classList.add('buttonDiv');
+        libraryBook.appendChild(buttons);
+        
+        let readButton = document.createElement('button');
+        readButton.classList.add(`readButton${myLibrary.length}`);
+        buttons.appendChild(readButton);
+        readButton.innerHTML = `Read?`
+    
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add(`deleteButton${myLibrary.length}`);
+        buttons.appendChild(deleteButton);
+        deleteButton.innerHTML = `Delete`
+
+        deleteButton.addEventListener('click', e => {
+        
+            selector = e.target.classList.value;
+            thisButton = document.querySelector(`.${selector}`)
+            thisTitle = thisButton.parentElement
+            thisTitle2 = thisTitle.parentElement
+            toDelete = thisTitle2.firstChild.innerHTML.slice(7);
+    
+            endNo = selector.slice(selector.length-1);
+            endNoDoubleDig = selector.slice(selector.length-2, selector.length);
+            
+            if (isNaN(selector.slice(length-2,selector.length))) {
+                toRemove = libraryContainer.querySelector(`.libraryBook${endNo}`)
+                toRemove.remove();
+            } else {
+                toRemove = libraryContainer.querySelector(`.libraryBook${endNoDoubleDig}`)
+                toRemove.remove();
+            }
+
+            for (let i = 0; i <= myLibrary.length; i++) {
+
+                if (myLibrary[i].title == toDelete) {
+                    myLibrary.splice(i,1);
+                    console.log(myLibrary[i].title)
+                    
+                }; 
+                };
+           
+         });
 }};
 
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
-
+    
     //assigns form value to temporary variables
     newTitle = titleInput.value;
     newAuthor = authorInput.value;
     newPages = pagesInput.value;
-    newRead = readInput.value;
+    if (readInput.value == 'true') {
+            newRead = 'Read';
+    } else {
+        newRead= 'Unread';
+    };
 
     //adds temporary variables to newBook & pushes to myLibrary array
     newBook = new bookConstructor(newTitle,newAuthor,newPages,newRead);
@@ -105,6 +163,7 @@ submitButton.addEventListener('click', (e) => {
     readInput.value = '';
 
     libraryDivUpdate();
+
 })
 
 
@@ -129,7 +188,7 @@ display in library
 
 //creates divs for each book & adds library array info
 for (i=0; i < myLibrary.length; i++) {
-    let libraryBook = document.createElement('div');
+    let libraryBook= document.createElement('div');
     libraryBook.classList.add(`libraryBook${i}`);
     libraryContainer.appendChild(libraryBook);
 
@@ -153,5 +212,59 @@ for (i=0; i < myLibrary.length; i++) {
     libraryBook.appendChild(bookRead);
     bookRead.innerHTML = `Read?: ${myLibrary[i].read}`
     
-};
+    let buttons = document.createElement('div');
+    buttons.classList.add('buttonDiv');
+    libraryBook.appendChild(buttons);
+    
+    let readButton = document.createElement('button');
+    readButton.classList.add(`readButton${i}`);
+    buttons.appendChild(readButton);
+    readButton.innerHTML = `Read?`
 
+    let deleteButton = document.createElement('button');
+    deleteButton.classList.add(`deleteButton${i}`);
+    buttons.appendChild(deleteButton);
+    deleteButton.innerHTML = `Delete`
+
+    deleteButton.addEventListener('click', e => {
+
+        selector = e.target.classList.value;
+        thisButton = document.querySelector(`.${selector}`)
+        thisTitle = thisButton.parentElement
+        thisTitle2 = thisTitle.parentElement
+        toDelete = thisTitle2.firstChild.textContent.slice(7);
+
+        endNo = selector.slice(selector.length-1);
+        endNoDoubleDig = selector.slice(selector.length-2, selector.length);
+
+
+
+        if (isNaN(selector.slice(length-2,selector.length))) {
+            
+            toRemove = libraryContainer.querySelector(`.libraryBook${endNo}`)
+            toRemove.remove();
+
+        } else {
+
+            toRemove = libraryContainer.querySelector(`.libraryBook${endNoDoubleDig}`)
+            toRemove.remove();
+
+            }
+
+            for (let i = 0; i <= myLibrary.length; i++) {
+
+                if (myLibrary[i].title == toDelete) {
+                    myLibrary.splice(i,1);
+                    console.log(myLibrary[i].title)
+                    
+                }; 
+                };
+     });
+
+     readButton.addEventListener('click', e => {
+        
+        testSelector = e.target.classList;
+        console.log(testSelector);
+
+     });
+};
