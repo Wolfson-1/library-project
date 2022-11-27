@@ -75,22 +75,22 @@ function libraryDivUpdate() { {
         let bookTitle = document.createElement('div');
         bookTitle.classList.add('title');
         libraryBook.appendChild(bookTitle);
-        bookTitle.innerHTML = `Title: ${myLibrary[myLibrary.length - 1].title}`
+        bookTitle.textContent = `Title: ${myLibrary[myLibrary.length - 1].title}`
 
         let bookAuthor = document.createElement('div');
         bookAuthor.classList.add('author');
         libraryBook.appendChild(bookAuthor);
-        bookAuthor.innerHTML = `Author: ${myLibrary[myLibrary.length - 1].author}`
+        bookAuthor.textContent = `Author: ${myLibrary[myLibrary.length - 1].author}`
 
         let bookPages = document.createElement('div');
         bookPages.classList.add('pages');
         libraryBook.appendChild(bookPages);
-        bookPages.innerHTML = `No. of Pages: ${myLibrary[myLibrary.length - 1].pages}`
+        bookPages.textContent = `No. of Pages: ${myLibrary[myLibrary.length - 1].pages}`
 
         let bookRead = document.createElement('div');
         bookRead.classList.add('read');
         libraryBook.appendChild(bookRead);
-        bookRead.innerHTML = `Read?: ${myLibrary[myLibrary.length - 1].read}`
+        bookRead.textContent = `Read?: ${myLibrary[myLibrary.length - 1].read}`
 
         let buttons = document.createElement('div');
         buttons.classList.add('buttonDiv');
@@ -99,13 +99,13 @@ function libraryDivUpdate() { {
         let readButton = document.createElement('button');
         readButton.classList.add(`readButton${myLibrary.length}`)
         buttons.appendChild(readButton);
-        readButton.innerHTML = `Read?`
+        readButton.textContent = `Read?`
 
     
         let deleteButton = document.createElement('button');
         deleteButton.classList.add(`deleteButton${myLibrary.length}`);
         buttons.appendChild(deleteButton);
-        deleteButton.innerHTML = `Delete`
+        deleteButton.textContent = `Delete`
 
         readButton.addEventListener('click', e => {
         
@@ -123,13 +123,11 @@ function libraryDivUpdate() { {
             //If statement to change read value
             if (thisReadContent === 'Read') {
     
-                thisRead.innerHTML = 'Read?: Unread';
-                console.log(thisRead);
+                thisRead.textContent = 'Read?: Unread';
     
             } if (thisReadContent === 'Unread') {
     
-                thisRead.innerHTML = 'Read?: Read';
-                console.log(thisRead); 
+                thisRead.textContent = 'Read?: Read';
             }
      
          }); 
@@ -140,7 +138,7 @@ function libraryDivUpdate() { {
             thisButton = document.querySelector(`.${selector}`)
             thisTitle = thisButton.parentElement
             thisTitle2 = thisTitle.parentElement
-            toDelete = thisTitle2.firstChild.innerHTML.slice(7);
+            toDelete = thisTitle2.firstChild.textContent.slice(7);
     
             endNo = selector.slice(selector.length-1);
             endNoDoubleDig = selector.slice(selector.length-2, selector.length);
@@ -233,22 +231,22 @@ for (i=0; i < myLibrary.length; i++) {
     let bookTitle = document.createElement('div');
     bookTitle.classList.add('title');
     libraryBook.appendChild(bookTitle);
-    bookTitle.innerHTML = `Title: ${myLibrary[i].title}`
+    bookTitle.textContent = `Title: ${myLibrary[i].title}`
 
     let bookAuthor = document.createElement('div');
     bookAuthor.classList.add('author');
     libraryBook.appendChild(bookAuthor);
-    bookAuthor.innerHTML = `Author: ${myLibrary[i].author}`
+    bookAuthor.textContent = `Author: ${myLibrary[i].author}`
 
     let bookPages = document.createElement('div');
     bookPages.classList.add('pages');
     libraryBook.appendChild(bookPages);
-    bookPages.innerHTML = `No. of Pages: ${myLibrary[i].pages}`
+    bookPages.textContent = `No. of Pages: ${myLibrary[i].pages}`
 
     let bookRead = document.createElement('div');
     bookRead.classList.add('read');
     libraryBook.appendChild(bookRead);
-    bookRead.innerHTML = `Read?: ${myLibrary[i].read}`
+    bookRead.textContent = `Read?: ${myLibrary[i].read}`
     
     let buttons = document.createElement('div');
     buttons.classList.add('buttonDiv');
@@ -256,13 +254,13 @@ for (i=0; i < myLibrary.length; i++) {
     
     let readButton = document.createElement('button');
     readButton.classList.add(`readButton${i}`);
-    readButton.innerHTML = `Read?`
+    readButton.textContent = `Read?`
     buttons.appendChild(readButton);
 
     let deleteButton = document.createElement('button');
     deleteButton.classList.add(`deleteButton${i}`);
     buttons.appendChild(deleteButton);
-    deleteButton.innerHTML = `Delete`
+    deleteButton.textContent = `Delete`
 
     //read button event listener
     readButton.addEventListener('click', e => {
@@ -281,13 +279,13 @@ for (i=0; i < myLibrary.length; i++) {
         //If statement to change read value
         if (thisReadContent === 'Read') {
 
-            thisRead.innerHTML = 'Read?: Unread';
+            thisRead.textContent = 'Read?: Unread';
             console.log(thisRead);
 
 
         } if (thisReadContent === 'Unread') {
 
-            thisRead.innerHTML = 'Read?: Read';
+            thisRead.textContent = 'Read?: Read';
             console.log(thisRead);
         }
  
