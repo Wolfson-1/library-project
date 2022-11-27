@@ -37,22 +37,22 @@ let myLibrary = [
     
      {
         title: 'Harry Potter & the Wizard of OZ!',
-        author: 'Me!',
-        pages: 2,
+        author: 'Bart Simpson',
+        pages: 354,
         read: 'Read',
     },
 
     {
         title: 'James & The Giant Peach',
         author: 'JK Rowling',
-        pages: 5356,
+        pages: 536,
         read: 'Unread',
     }, 
 
     {
-        title: 'Vikings',
+        title: 'Vikings: A Vikings Tale',
         author: 'Colin Firth',
-        pages: 45,
+        pages: 232,
         read: 'Read',
     }, 
 ]
