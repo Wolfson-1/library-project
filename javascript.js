@@ -23,6 +23,10 @@ let endNoDoubleDig = '';
 let thisTitle2 = '';
 let toDelete = '';
 
+//for read button
+let readSelector = '';
+let thisRead = '';
+
 //------------------------------------------
 
 /*Take inputs from user*/
@@ -34,21 +38,21 @@ let myLibrary = [
         title: 'Harry Potter & the Wizard of OZ!',
         author: 'Me!',
         pages: 2,
-        read: true,
+        read: 'Read',
     },
 
     {
         title: 'James & The Giant Peach',
         author: 'JK Rowling',
         pages: 5356,
-        read: false,
+        read: 'Unread',
     }, 
 
     {
         title: 'Vikings',
         author: 'Colin Firth',
         pages: 45,
-        read: true,
+        read: 'Read',
     }, 
 ]
 
@@ -101,6 +105,34 @@ function libraryDivUpdate() { {
         buttons.appendChild(deleteButton);
         deleteButton.innerHTML = `Delete`
 
+        readButton.addEventListener('click', e => {
+        
+            readSelector = e.target.classList.value;
+    
+            //pulls value from current selected div for "Read?"
+            thisButton = document.querySelector(`.${readSelector}`)
+            thisDiv = thisButton.parentElement
+            thisOuterDiv = thisDiv.parentElement
+            thisRead = thisOuterDiv.querySelector('.read');
+            thisReadContent = thisOuterDiv.querySelector('.read').textContent.slice(7,);
+    
+            console.log(readSelector)
+    
+            //If statement to change read value
+            if (thisReadContent === 'Read') {
+    
+                thisRead.innerHTML = 'Read?: Unread';
+                console.log(thisRead);
+    
+            } if (thisReadContent === 'Unread') {
+    
+                thisRead.innerHTML = 'Read?: Read';
+                console.log(thisRead);
+            }
+     
+         });
+
+
         deleteButton.addEventListener('click', e => {
         
             selector = e.target.classList.value;
@@ -131,6 +163,7 @@ function libraryDivUpdate() { {
            
          });
 }};
+
 
 
 submitButton.addEventListener('click', (e) => {
@@ -226,6 +259,34 @@ for (i=0; i < myLibrary.length; i++) {
     buttons.appendChild(deleteButton);
     deleteButton.innerHTML = `Delete`
 
+    readButton.addEventListener('click', e => {
+        
+        readSelector = e.target.classList.value;
+
+        //pulls value from current selected div for "Read?"
+        thisButton = document.querySelector(`.${readSelector}`)
+        thisDiv = thisButton.parentElement
+        thisOuterDiv = thisDiv.parentElement
+        thisRead = thisOuterDiv.querySelector('.read');
+        thisReadContent = thisOuterDiv.querySelector('.read').textContent.slice(7,);
+
+        console.log(readSelector)
+
+        //If statement to change read value
+        if (thisReadContent === 'Read') {
+
+            thisRead.innerHTML = 'Read?: Unread';
+            console.log(thisRead);
+
+        } if (thisReadContent === 'Unread') {
+
+            thisRead.innerHTML = 'Read?: Read';
+            console.log(thisRead);
+        }
+ 
+     });
+
+     // Event listener for delete button to effectivly remove selected div & array object.
     deleteButton.addEventListener('click', e => {
 
         selector = e.target.classList.value;
@@ -251,20 +312,13 @@ for (i=0; i < myLibrary.length; i++) {
 
             }
 
-            for (let i = 0; i <= myLibrary.length; i++) {
+            for (let i = 0; i < myLibrary.length; i++) {
 
                 if (myLibrary[i].title == toDelete) {
                     myLibrary.splice(i,1);
-                    console.log(myLibrary[i].title)
-                    
                 }; 
                 };
      });
 
-     readButton.addEventListener('click', e => {
-        
-        testSelector = e.target.classList;
-        console.log(testSelector);
 
-     });
 };
