@@ -96,9 +96,10 @@ function libraryDivUpdate() { {
         libraryBook.appendChild(buttons);
         
         let readButton = document.createElement('button');
-        readButton.classList.add(`readButton${myLibrary.length}`);
+        readButton.classList.add(`readButton${myLibrary.length}`)
         buttons.appendChild(readButton);
         readButton.innerHTML = `Read?`
+
     
         let deleteButton = document.createElement('button');
         deleteButton.classList.add(`deleteButton${myLibrary.length}`);
@@ -127,11 +128,10 @@ function libraryDivUpdate() { {
             } if (thisReadContent === 'Unread') {
     
                 thisRead.innerHTML = 'Read?: Read';
-                console.log(thisRead);
+                console.log(thisRead); 
             }
      
-         });
-
+         }); 
 
         deleteButton.addEventListener('click', e => {
         
@@ -174,9 +174,9 @@ submitButton.addEventListener('click', (e) => {
     newAuthor = authorInput.value;
     newPages = pagesInput.value;
     if (readInput.value == 'true') {
-            newRead = 'Read';
+            newRead = 'Unread';
     } else {
-        newRead= 'Unread';
+        newRead= 'Read';
     };
 
     //adds temporary variables to newBook & pushes to myLibrary array
@@ -251,14 +251,15 @@ for (i=0; i < myLibrary.length; i++) {
     
     let readButton = document.createElement('button');
     readButton.classList.add(`readButton${i}`);
-    buttons.appendChild(readButton);
     readButton.innerHTML = `Read?`
+    buttons.appendChild(readButton);
 
     let deleteButton = document.createElement('button');
     deleteButton.classList.add(`deleteButton${i}`);
     buttons.appendChild(deleteButton);
     deleteButton.innerHTML = `Delete`
 
+    //read button event listener
     readButton.addEventListener('click', e => {
         
         readSelector = e.target.classList.value;
@@ -277,6 +278,7 @@ for (i=0; i < myLibrary.length; i++) {
 
             thisRead.innerHTML = 'Read?: Unread';
             console.log(thisRead);
+
 
         } if (thisReadContent === 'Unread') {
 

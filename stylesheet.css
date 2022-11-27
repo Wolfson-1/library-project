@@ -5,7 +5,7 @@ body {
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
     background-color: grey;
-
+    color: bisque;
 }
 
 .headerContainer {
@@ -59,13 +59,19 @@ body {
     display:flex;
     flex-direction: column;
 
-    border:solid 1px;
+    
     height: 230px;
     width:230px;
     margin: 1.5%;
     flex: 0 0 250px;
     border-radius: 15px;
     background-color: rgb(49, 116, 209);
+}
+
+.libraryContainer>div:hover {
+
+    background-color: rgb(27, 121, 253);
+    box-shadow: 2px 2px 0 0 rgb(33, 125, 254);
 }
 
 .libraryContainer>div>div {
@@ -76,6 +82,7 @@ body {
     overflow-wrap: break-word;
     padding-top:10px;
     font-size: large;
+    color: bisque;
 }
 
 .addBookForm {
@@ -114,6 +121,7 @@ body {
     align-items:flex-end;
     flex:1 0 0;
     margin-bottom: 10px;
+    
 }
 
 .buttonDiv>button {
@@ -122,5 +130,27 @@ body {
     padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    border-radius: 4px;   
+    border-radius: 8px;   
+    border: none;
+    font-size: 15px;
+    color: bisque;
 }
+
+.buttonDiv>:last-child {
+    background-color: rgb(201, 32, 32);
+}
+
+.buttonDiv>:last-child:hover {
+    background-color: rgb(228, 52, 52);
+
+}
+
+.buttonDiv>:first-child {
+    background-color: rgb(56, 172, 20);
+}
+
+.buttonDiv>:first-child:hover {
+    background-color: rgb(80, 180, 50);
+
+}
+
